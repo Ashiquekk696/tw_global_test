@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class FullScreenImage extends StatelessWidget {
+class FullScreenView extends StatelessWidget {
   final String imageUrl;
 
-  const FullScreenImage({required this.imageUrl});
+  const FullScreenView({required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {

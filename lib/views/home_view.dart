@@ -10,10 +10,10 @@ class HomeView extends GetView {
 
   @override
   Widget build(BuildContext context) {
-    int columnsCount = (MediaQuery.of(context).size.width / 200)
-        .floor(); // Adjust 200 to your desired item width
-    columnsCount =
-        columnsCount < 1 ? 1 : columnsCount; // Ensure at least 1 column
+    // Calculate the number of columns with a minimum of 2
+    int columnsCount =
+        ((MediaQuery.of(context).size.width / 200) + 0.5).floor();
+    columnsCount = columnsCount < 2 ? 2 : columnsCount;
 
     double itemWidth = MediaQuery.of(context).size.width / columnsCount;
 
@@ -45,16 +45,18 @@ class HomeView extends GetView {
                           return GestureDetector(
                             onTap: () {
                               Get.to(
-                                  FullScreenImage(
-                                      imageUrl: item.largeImageURL ?? ""),
-                                  transition: Transition.fadeIn,
-                                  duration: Duration(seconds: 1));
+                                FullScreenView(
+                                  imageUrl: item.largeImageURL ?? "",
+                                ),
+                                transition: Transition.fadeIn,
+                                duration: Duration(seconds: 1),
+                              );
                             },
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(5),
                               child: Container(
                                 width: itemWidth,
-                                height: itemWidth, // Same width and height
+                                height: itemWidth,
                                 child: Stack(
                                   children: [
                                     Image.network(
@@ -73,9 +75,8 @@ class HomeView extends GetView {
                                           SizedBox(width: 4.0),
                                           Text(
                                             '${item.likes}',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                            ),
+                                            style:
+                                                TextStyle(color: Colors.white),
                                           ),
                                         ],
                                       ),
@@ -90,9 +91,8 @@ class HomeView extends GetView {
                                           SizedBox(width: 4.0),
                                           Text(
                                             '${item.views ?? ""}',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                            ),
+                                            style:
+                                                TextStyle(color: Colors.white),
                                           ),
                                         ],
                                       ),
