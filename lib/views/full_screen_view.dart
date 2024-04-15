@@ -11,10 +11,10 @@ class FullScreenView extends StatelessWidget {
     return Scaffold(
       body: GestureDetector(
         onTap: () {
-          Get.back(); // Go back when tapped
+          Get.back();  
         },
         child: Container(
-          color: Colors.black, // Background color for fullscreen
+          color: Colors.black,  
           child: Center(
             child: Image.network(
               imageUrl,
