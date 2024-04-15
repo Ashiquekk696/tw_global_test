@@ -29,8 +29,7 @@ lib/helpers/config.dart
 .flutter-plugins
 .flutter-plugins-dependencies
 .pub-cache/
-.pub/
-/build/
+.pub/ 
 
 # Symbolication related
 app.*.symbols
