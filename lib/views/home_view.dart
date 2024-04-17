@@ -5,6 +5,7 @@ import '../controllers/home_controller.dart';
 import '../models/home_model.dart';
 import 'full_screen_view.dart';
 
+//home
 class HomeView extends GetView {
   var controller = Get.put<HomeController>(HomeController());
 
